@@ -40,6 +40,14 @@ const info = (endPoint, container) => {
           divCompanyName.appendChild(spanFeatured);
         }
 
+        if (element.new && element.featured) {
+          divCard.style.boxSizing = "border-box";
+          divCard.style.borderLeftWidth = "5px";
+          divCard.style.borderLeftStyle = "solid";
+          divCard.style.borderLeftColor = "hsl(180, 29%, 50%)";
+
+        }
+
         cardHeader.appendChild(divCompanyName);
 
         const position = document.createElement("h2");
