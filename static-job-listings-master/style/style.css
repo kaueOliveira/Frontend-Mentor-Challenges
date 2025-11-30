@@ -42,9 +42,6 @@ body {
   border-radius: 5px;
   background-color: white;
 
-  /* box-sizing: border-box; */
-  /* border-left: 5px solid var(--Green-400); */
-
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -181,7 +178,6 @@ section > button:hover {
     align-items: center;
     justify-content: space-between;
 
-    /* 1300px */
   }
 
   .card img {
