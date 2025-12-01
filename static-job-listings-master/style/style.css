@@ -19,10 +19,11 @@ html {
 body {
   height: 100%;
   width: 100%;
+  background-color: var(--Green-50-Background);
 }
 
 #container {
-  background-color: var(--Green-50-Background);
+  
   padding-bottom: 2rem;
 }
 
@@ -32,6 +33,10 @@ body {
 
   background-image: url(/images/bg-header-mobile.svg);
   background-color: var(--Green-400);
+}
+
+#container .card:first-child {
+  margin-top: 8rem;
 }
 
 .card {
@@ -146,7 +151,7 @@ section {
   gap: 1.5rem;
 }
 
-section > button {
+section > button, .button {
   font-size: 1.5rem;
   font-weight: 700;
 
@@ -163,6 +168,43 @@ section > button {
 section > button:hover {
   background-color: var(--Green-400);
   color: var(--Green-50-Background);
+}
+
+#div-with-filters {
+  width: calc(85% - 4rem);
+  height: auto;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+
+  position: absolute;
+
+  top: 14.5rem;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+#div-with-filters .button {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 0 0 10px;
+}
+
+.button > img {
+  padding: 3px 5px;
+  margin-left: 5px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: var(--Green-400);
 }
 
 @media screen and (min-width: 1200px) {
