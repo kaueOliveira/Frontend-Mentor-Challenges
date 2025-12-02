@@ -172,7 +172,9 @@ section > button:hover {
 
 #div-with-filters {
   width: calc(85% - 4rem);
+  max-width: calc(130rem - 4rem);
   height: auto;
+  min-height: 2rem;
   padding: 1.5rem 2rem;
   background-color: white;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
@@ -182,13 +184,46 @@ section > button:hover {
   top: 14.5rem;
   left: 50%;
 
-  transform: translate(-50%, -50%);
-
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
+}
+
+.animation-enter {
+  opacity: 0;
+  transform: translate(-50%, -60%);
+  animation: filterEnter 0.5s forwards ease;
+}
+
+.animation-exit {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  animation: filterExit 0.5s forwards ease;
+}
+
+@keyframes filterEnter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -70%);
+  }
+  to {
+    opacity: 1;
+    max-height: 50rem;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes filterExit {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -70%);
+  }
 }
 
 #div-with-filters .button {
@@ -205,6 +240,7 @@ section > button:hover {
   margin-left: 5px;
   border-radius: 0px 5px 5px 0px;
   background-color: var(--Green-400);
+  pointer-events: none;
 }
 
 @media screen and (min-width: 1200px) {
@@ -270,4 +306,8 @@ section > button:hover {
     margin: auto 4rem auto auto;
     padding: 0;
   }
+}
+
+.block-input {
+  pointer-events: none;
 }

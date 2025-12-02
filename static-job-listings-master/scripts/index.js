@@ -162,24 +162,38 @@ function divWithFilters() {
   } else {
     divFilters = document.createElement("div");
     divFilters.id = "div-with-filters";
+    divFilters.className = "animation-enter";
     document.body.appendChild(divFilters);
   }
-
 
   filters.forEach((f) => {
     const buttonRemove = document.createElement("img");
     buttonRemove.src = "images/icon-remove.svg";
-    
+
     const chosenFilter = document.createElement("button");
     chosenFilter.className = "button";
     chosenFilter.innerHTML = f;
-    
-    chosenFilter.appendChild(buttonRemove)
+
+    chosenFilter.appendChild(buttonRemove);
 
     divFilters.appendChild(chosenFilter);
+
+    chosenFilter.addEventListener("click", () => {
+      filters = filters.filter((item) => item !== f);
+
+      renderDivs();
+      divWithFilters();
+    });
   });
 
   if (divFilters.childNodes.length === 0) {
-    divFilters.remove();
+    divFilters.className = "animation-exit";
+    document.body.classList.add("block-input");
+    divFilters.addEventListener("animationend", ()=> {
+      document.body.classList.remove("block-input");
+      divFilters.remove();
+    })
   }
 }
+
+//Adicionar Animation
