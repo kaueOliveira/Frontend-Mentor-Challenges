@@ -284,3 +284,91 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(16px);
 }
+
+/* ---------Light------------ */
+
+.light {
+  background: linear-gradient(
+    to bottom,
+    var(--Neutral-200) 0%,
+    var(--Neutral-100) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.light header {
+  background-color: var(--Neutral-0);
+}
+
+.light header > div {
+  background-color: var(--Neutral-100);
+  border: 2px solid var(--Red-50);
+  margin: calc(0.75rem - 2px) calc(1rem - 2px);
+}
+
+.light nav {
+  color: var(--Neutral-800);
+}
+
+.light nav li {
+  background-color: var(--Neutral-0);
+  border: none;
+}
+
+.light nav li:hover {
+  /* padding: 3px 13px; */
+  /* border: 2px solid var(--Red-50); */
+}
+
+.light nav li.active {
+  color: var(--Neutral-0);
+  background-color: var(--Red-70);
+  border: 1px solid var(--Neutral-0);
+  outline: 2px solid var(--Red-50);
+  /* padding: 3px 13px; */
+}
+
+.light .div-extension {
+  background-color: var(--Neutral-0);
+  border: 1px solid var(--Neutral-300);
+}
+
+.light .extension-info-text > h1 {
+  color: var(--Neutral-800);
+}
+
+.light .extension-info-text > p {
+  color: var(--Neutral-700);
+}
+
+.light .button-remove {
+  background-color: var(--Neutral-0);
+  color: var(--Neutral-800);
+
+  border-radius: 1.75rem;
+  border: 2px solid var(--Neutral-300);
+
+  font-size: 1.6rem;
+  padding: 0.5rem 1.5rem;
+
+  cursor: pointer;
+}
+
+.light .button-remove:hover {
+  background-color: var(--Neutral-100);
+  color: var(--Neutral-800);
+  border: 2px solid var(--Neutral-0);
+  outline: 2px solid var(--Red-50);
+}
+
+.light input:checked + .slider {
+  background-color: var(--Red-70);
+}
+
+.light .switch:hover {
+  border-radius: 2rem;
+  border: 2px solid var(--Neutral-0);
+  outline: 2px solid var(--Red-50);
+}
