@@ -65,3 +65,28 @@ const info = (endPoint, sectionExtensions) => {
 };
 
 info(endPoint, sectionExtensions);
+
+const changeThemeBtn = document.getElementById("change-theme");
+const logoImage = document.getElementById("logo");
+
+function applyTheme(theme) {
+    if (theme === "light") {
+        document.body.classList.add("light");
+        logoImage.src = "assets/images/logo.svg";
+        changeThemeBtn.src = "assets/images/icon-moon.svg";
+    } else {
+        document.body.classList.remove("light");
+        logoImage.src = "assets/images/dark-logo.svg";
+        changeThemeBtn.src = "assets/images/icon-sun.svg"
+    }
+}
+
+// Carregar tema salvo no localStorage
+const savedTheme = localStorage.getItem("theme") || "dark";
+applyTheme(savedTheme);
+
+changeThemeBtn.addEventListener("click", (evt) => {
+    const newTheme = document.body.classList.contains("light") ? "dark" : "light";
+    applyTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+})
