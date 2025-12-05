@@ -26,8 +26,8 @@ const renderExtensions = () => {
 
       divExtensionInfo.appendChild(extensionImage);
 
-      const divExtesionInfoText = document.createElement("div");
-      divExtesionInfoText.className = "extension-info-text";
+      const divExtensionInfoText = document.createElement("div");
+      divExtensionInfoText.className = "extension-info-text";
 
       const extensionName = document.createElement("h1");
       extensionName.textContent = element.name;
@@ -35,17 +35,17 @@ const renderExtensions = () => {
       const extensionDescription = document.createElement("p");
       extensionDescription.textContent = element.description;
 
-      divExtesionInfoText.appendChild(extensionName);
-      divExtesionInfoText.appendChild(extensionDescription);
+      divExtensionInfoText.appendChild(extensionName);
+      divExtensionInfoText.appendChild(extensionDescription);
 
-      divExtensionInfo.appendChild(divExtesionInfoText);
+      divExtensionInfo.appendChild(divExtensionInfoText);
 
       const divToggleRemove = document.createElement("div");
       divToggleRemove.classList = "toggle-remove-wrapper";
 
       const buttonRemove = document.createElement("button");
       buttonRemove.className = "button-remove";
-      buttonRemove.textContent = "remove";
+      buttonRemove.textContent = "Remove";
 
       removeExtension(buttonRemove);
 
@@ -55,6 +55,7 @@ const renderExtensions = () => {
       const inputCheckBox = document.createElement("input");
       inputCheckBox.className = "checkbox";
       inputCheckBox.type = "checkbox";
+      inputCheckBox.checked = element.active; 
 
       const slider = document.createElement("span");
       slider.className = "slider";
