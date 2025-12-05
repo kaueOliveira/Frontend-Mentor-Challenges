@@ -1,4 +1,5 @@
 const sectionExtensions = document.getElementById("section-extensions");
+const listButtons = document.querySelectorAll(".list-button");
 const endPoint = "data.json";
 
 let extensionsData = [];
@@ -46,7 +47,7 @@ const renderExtensions = () => {
       buttonRemove.className = "button-remove";
       buttonRemove.textContent = "remove";
 
-      // Function remove
+      removeExtension(buttonRemove);
 
       const toggleSwitch = document.createElement("label");
       toggleSwitch.className = "switch";
@@ -61,7 +62,7 @@ const renderExtensions = () => {
       inputCheckBox.addEventListener("change", (e) => {
         element.active = e.target.checked;
         setTimeout(() => {
-            renderExtensions();
+          renderExtensions();
         }, 500);
       });
 
@@ -85,7 +86,7 @@ fetch(endPoint)
   .then((res) => {
     extensionsData = res.map((ext) => ({ ...ext, active: false }));
 
-    renderExtensions()
+    renderExtensions();
 
     listButtons.forEach((liButton) => {
       liButton.addEventListener("click", (evt) => {
@@ -97,6 +98,19 @@ fetch(endPoint)
       });
     });
   });
+
+function removeExtension(buttonRemove) {
+  buttonRemove.addEventListener("click", (evt) => {
+    const extensionName =
+      evt.target.parentNode.parentNode.children[0].children[1].children[0]
+        .textContent;
+
+    extensionsData = extensionsData.filter(
+      (extension) => extension.name !== extensionName
+    );
+    renderExtensions();    
+  });
+}
 
 const changeThemeBtn = document.getElementById("change-theme");
 const logoImage = document.getElementById("logo");
