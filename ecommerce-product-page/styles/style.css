@@ -41,6 +41,8 @@ nav {
   top: 0;
   left: -22.5rem;
 
+  z-index: 1;
+  transition: left 0.3s ease;
   /* border: 1px solid red; */
 }
 
@@ -128,6 +130,7 @@ section > #navigation > img {
   border: none;
 
   cursor: pointer;
+  z-index: 0;
 }
 
 #buttons-navigation > button > img {
