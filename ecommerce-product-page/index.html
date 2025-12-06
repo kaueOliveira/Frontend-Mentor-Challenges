@@ -43,7 +43,12 @@
 
     <section id="product">
       <div id="navigation">
-        <img src="images/image-product-1.jpg" alt="product">
+        <div id="carousel">
+          <img src="images/image-product-1.jpg" alt="product" class="slide fade">
+          <img src="images/image-product-2.jpg" alt="product" class="slide fade">
+          <img src="images/image-product-3.jpg" alt="product" class="slide fade">
+          <img src="images/image-product-4.jpg" alt="product" class="slide fade">
+        </div>
         <div id="images">
           <img src="images/image-product-1-thumbnail.jpg" alt="product">
           <img src="images/image-product-2-thumbnail.jpg" alt="product">
@@ -51,8 +56,8 @@
           <img src="images/image-product-4-thumbnail.jpg" alt="product">
         </div>
         <div id="buttons-navigation">
-          <button><img src="images/icon-previous.svg" alt="Previous Image"></button>
-          <button> <img src="images/icon-next.svg" alt="Next Image"></button>
+          <button onclick="previousSlide(-1)"><img src="images/icon-previous.svg" alt="Previous Image"></button>
+          <button onclick="nextSlide(+1)"><img src="images/icon-next.svg" alt="Next Image" ></button>
         </div>
       </div>
       <div id="product-info">
