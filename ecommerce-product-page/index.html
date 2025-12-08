@@ -24,7 +24,7 @@
   <body>
     <header>
       <img src="images/icon-menu.svg" alt="menu" id="button-menu" />
-      <img src="images/logo.svg" alt="logo sneakers" />
+      <img src="images/logo.svg" alt="logo sneakers" id="logo"/>
       <nav id="menu">
         <img src="images/icon-close.svg" alt="close" id="button-close" />
         <ul>
@@ -89,13 +89,13 @@
           the weather can offer.
         </p>
         <div id="price-info">
-          <div>
+          <div id="price-discount">
             <span id="discounted-price">$125.00</span>
             <span id="discounted">50%</span>
           </div>
           <span id="normal-price">$250.00</span>
         </div>
-        
+
         <div id="div-add-to-cart">
           <div id="div-quantity">
             <button id="minus-button">
@@ -106,7 +106,7 @@
               <img src="images/icon-plus.svg" alt="plus" />
             </button>
           </div>
-          <button>
+          <button id="btn-add">
             <img src="images/icon-cart.svg" alt="cart" id="add-to-cart" /> Add
             to cart
           </button>

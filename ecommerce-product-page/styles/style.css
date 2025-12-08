@@ -13,6 +13,7 @@
 
 :root {
   --Orange: hsl(26, 100%, 55%);
+  --Orange-hover: hsl(26, 100%, 64%);
   --Pale-orange: hsl(25, 100%, 94%);
 
   --Very-dark-blue: hsl(220, 13%, 13%);
@@ -43,7 +44,6 @@ nav {
 
   z-index: 1;
   transition: left 0.3s ease;
-  /* border: 1px solid red; */
 }
 
 nav > img {
@@ -56,7 +56,7 @@ nav > img {
   user-select: none;
 }
 
-nav > ul {
+ul {
   display: flex;
   flex-flow: column nowrap;
 
@@ -64,11 +64,9 @@ nav > ul {
   margin: 2rem 2rem;
 
   list-style: none;
-
-  /* border: 1px solid blue; */
 }
 
-ul > li {
+li {
   font-size: 1.6rem;
   font-weight: 700;
 
@@ -78,14 +76,8 @@ ul > li {
 }
 
 header {
-  /* border: 1px solid green; */
   width: 90%;
   margin: 2rem auto;
-
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #button-menu {
@@ -105,18 +97,15 @@ header {
   margin-right: 2rem;
 }
 
-section > #navigation > div > img {
+#carousel > img {
   width: 100%;
   height: 80vw;
+
+  margin-bottom: 1.5rem;
 }
 
-#navigation > #buttons-navigation {
+#buttons-navigation {
   width: 90%;
-
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
 
   position: absolute;
   top: 55vw;
@@ -150,17 +139,14 @@ section > #navigation > div > img {
   display: none;
 }
 
-section > #product-info {
+#product-info {
   width: 90%;
   margin: auto;
-
-  /* border: 1px solid green; */
 }
 
 #product-info > span {
   font-size: 1.6rem;
   font-weight: 700;
-
   color: var(--Dark-grayish-blue);
 }
 
@@ -174,36 +160,25 @@ section > #product-info {
 
 #product-info > p {
   font-size: 1.5rem;
-
   color: var(--Dark-grayish-blue);
 }
 
-#product-info > #price-info {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-
+#price-info {
   margin: 1rem 0 0;
 }
 
-#price-info > div {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-
+#price-discount {
   gap: 1rem;
 }
 
-#price-info #discounted-price {
+#price-discount > #discounted-price {
   font-size: 2.8rem;
   font-weight: 700;
 
   color: var(--Very-dark-blue);
 }
 
-#price-info #discounted {
+#price-discount > #discounted {
   font-size: 1.4rem;
 
   padding: 2px 6px;
@@ -223,10 +198,7 @@ section > #product-info {
   height: 4.5rem;
   margin: 1.5rem auto;
 
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-around !important;
 
   font-size: 1.6rem;
   font-weight: 700;
@@ -238,7 +210,8 @@ section > #product-info {
 }
 
 #div-quantity button,
-#div-quantity img {
+#div-quantity img,
+#btn-add {
   display: block;
 }
 
@@ -253,10 +226,8 @@ section > #product-info {
   cursor: pointer;
 }
 
-#div-add-to-cart > button {
-  display: block;
-
-  width: 90%;
+#btn-add {
+  width: 100%;
   height: 5rem;
   margin: 1.5rem auto;
 
@@ -280,6 +251,21 @@ section > #product-info {
   cursor: pointer;
 }
 
+#btn-add:hover {
+  background-color: var(--Orange-hover);
+}
+
+#price-info,
+#price-discount,
+#div-quantity,
+#buttons-navigation,
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -297,11 +283,18 @@ section > #product-info {
 @media screen and (min-width: 1150px) {
   header {
     width: 85%;
-    max-width: 1292.680px;
+    max-width: 1292.68px;
 
     display: flex;
+    align-items: center;
     justify-content: flex-start;
     gap: 6rem;
+
+    border-bottom: 1px solid var(--Grayish-blue);
+  }
+
+  #logo {
+     padding-bottom: 4rem;
   }
 
   #button-menu,
@@ -323,6 +316,13 @@ section > #product-info {
 
   ul > li {
     font-weight: 500;
+    border-bottom: 2px solid white;
+    padding-bottom: 3.6rem;
+  }
+
+  li:hover {
+    transition: all 0.8s ease;
+    border-bottom: 2px solid var(--Orange);
   }
 
   #div-cart {
@@ -330,6 +330,7 @@ section > #product-info {
     align-items: center;
 
     margin-left: auto;
+    padding-bottom: 2.4rem;
   }
 
   #avatar {
@@ -337,12 +338,21 @@ section > #product-info {
     height: 4.25rem !important;
 
     margin-left: 2rem;
+    border-radius: 50%;
+
+    outline: 3px solid white;
+    cursor: pointer;
+  }
+
+  #avatar:hover {
+    transition: all 0.8s ease;
+    outline: 2px solid var(--Orange);
   }
 
   #product {
     width: 80%;
-    max-width: 1216.640px;
-    margin: 10rem auto;
+    max-width: 1216.64px;
+    margin: 6rem auto;
 
     display: flex;
     align-items: flex-start;
@@ -371,7 +381,14 @@ section > #product-info {
     width: 8.5rem !important;
     border-radius: 0.8rem !important;
 
+    outline: 3px solid white;
     cursor: pointer;
+  }
+
+  #images > img:hover {
+    transition: all 0.8s ease;
+    outline: 3px solid var(--Orange);
+    opacity: 0.7;
   }
 
   #navigation > #buttons-navigation {
@@ -379,8 +396,8 @@ section > #product-info {
   }
 
   #product-info {
-    width: 50rem !important;
-    margin: 9rem 0  0!important;
+    width: 50rem;
+    margin: 9rem 0 0;
   }
 
   #product-info > span {
@@ -399,7 +416,7 @@ section > #product-info {
     line-height: 2.8rem;
 
     margin-bottom: 3rem;
-  } 
+  }
 
   #product-info > #price-info {
     flex-direction: column;
@@ -411,7 +428,7 @@ section > #product-info {
     font-size: 3.5rem;
   }
 
-  #price-info #normal-price  {
+  #price-info #normal-price {
     font-size: 1.8rem;
     font-weight: 700;
 
