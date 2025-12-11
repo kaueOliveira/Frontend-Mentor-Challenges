@@ -2,11 +2,20 @@ const buttonopenMenu = document.getElementById("button-menu");
 const buttonCloseMenu = document.getElementById("button-close");
 const menu = document.getElementById("menu");
 
+const lightboxBackground = document.getElementById("lightbox-background");
+const desktopNavigation = document.getElementById("desktop-navigation");
+const desktopSlides = document.querySelectorAll(".desktop-slide");
+
+const slides = document.querySelectorAll(".slide");
+let index = 0;
+
 function checkScreenSize() {
   if (window.innerWidth > 900) {
     menu.style.left = "0";
   } else {
     menu.style.left = "-22.5rem";
+    lightboxBackground.style.display = "none";
+    showSlide(index);
   }
 }
 
@@ -24,19 +33,22 @@ buttonCloseMenu.addEventListener("click", () => {
   menu.style.left = "-22.5rem";
 });
 
-// Carrossel
-
-const slides = document.querySelectorAll(".slide");
-let index = 0;
-
 showSlide(index);
 
 function nextSlide(n) {
-  showSlide((index += n));
+  if (window.innerWidth < 900) {
+    showSlide((index += n));
+  } else {
+    showDesktopSlide((index += n));
+  }
 }
 
 function previousSlide(n) {
-  showSlide((index += n));
+  if (window.innerWidth < 900) {
+    showSlide((index += n));
+  } else {
+    showDesktopSlide((index += n));
+  }
 }
 
 function showSlide(n) {
@@ -49,4 +61,32 @@ function showSlide(n) {
   });
 
   slides[index].style.display = "flex";
+
+  showDesktopSlide(index);
 }
+
+showDesktopSlide(index);
+
+function showDesktopSlide(n) {
+  if (n >= slides.length) index = 0;
+
+  if (n < 0) index = slides.length - 1;
+
+  slides.forEach((slide) => {
+    slide.addEventListener("click", (evt) => {
+      lightboxBackground.style.display = "block";
+    });
+  });
+  
+  desktopSlides.forEach((deskSlide) => {
+    deskSlide.style.display = "none";
+  });
+  desktopSlides[index].style.display = "flex";
+}
+
+const closeBackground = document.getElementById("close-background");
+
+closeBackground.addEventListener("click", () => {
+  lightboxBackground.style.display = "none";
+  showSlide(index);
+});

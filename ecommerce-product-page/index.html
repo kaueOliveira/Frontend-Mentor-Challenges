@@ -66,10 +66,10 @@
           />
         </div>
         <div id="images">
-          <img src="images/image-product-1-thumbnail.jpg" alt="product" />
-          <img src="images/image-product-2-thumbnail.jpg" alt="product" />
-          <img src="images/image-product-3-thumbnail.jpg" alt="product" />
-          <img src="images/image-product-4-thumbnail.jpg" alt="product" />
+          <img src="images/image-product-1-thumbnail.jpg" alt="product" onclick="showSlide((index = 0 ))"/>
+          <img src="images/image-product-2-thumbnail.jpg" alt="product" onclick="showSlide((index = 1 ))"/>
+          <img src="images/image-product-3-thumbnail.jpg" alt="product" onclick="showSlide((index = 2 ))"/>
+          <img src="images/image-product-4-thumbnail.jpg" alt="product" onclick="showSlide((index = 3 ))"/>
         </div>
         <div id="buttons-navigation">
           <button onclick="previousSlide(-1)">
@@ -117,6 +117,47 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
+  <div id="lightbox-background">
+     <div id="desktop-navigation">
+      <img src="images/icon-close.svg" alt="close" id="close-background">
+        <div id="desktop-carousel">
+          <img
+            src="images/image-product-1.jpg"
+            alt="product"
+            class="desktop-slide fade"
+          />
+          <img
+            src="images/image-product-2.jpg"
+            alt="product"
+            class="desktop-slide fade"
+          />
+          <img
+            src="images/image-product-3.jpg"
+            alt="product"
+            class="desktop-slide fade"
+          />
+          <img
+            src="images/image-product-4.jpg"
+            alt="product"
+            class="desktop-slide fade"
+          />
+        </div>
+        <div id="desktop-images">
+          <img src="images/image-product-1-thumbnail.jpg" alt="product" onclick="showDesktopSlide((index = 0 ))"/>
+          <img src="images/image-product-2-thumbnail.jpg" alt="product" onclick="showDesktopSlide((index = 1 ))"/>
+          <img src="images/image-product-3-thumbnail.jpg" alt="product" onclick="showDesktopSlide((index = 2 ))"/>
+          <img src="images/image-product-4-thumbnail.jpg" alt="product" onclick="showDesktopSlide((index = 3 ))"/>
+        </div>
+        <div id="desktop-buttons-navigation">
+          <button onclick="previousSlide(-1)">
+            <img src="images/icon-previous.svg" alt="Previous Image" />
+          </button>
+          <button onclick="nextSlide(+1)">
+            <img src="images/icon-next.svg" alt="Next Image" />
+          </button>
+        </div>
+      </div>
+  </div>
   </body>
   <script src="scripts/script.js"></script>
 </html>

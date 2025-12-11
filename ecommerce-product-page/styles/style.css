@@ -102,6 +102,9 @@ header {
   height: 80vw;
 
   margin-bottom: 1.5rem;
+
+  pointer-events: none;
+  display: none;
 }
 
 #buttons-navigation {
@@ -266,6 +269,18 @@ header {
   justify-content: space-between;
 }
 
+#lightbox-background {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -281,6 +296,7 @@ header {
 }
 
 @media screen and (min-width: 1150px) {
+  /*768px*/
   header {
     width: 85%;
     max-width: 1292.68px;
@@ -294,7 +310,7 @@ header {
   }
 
   #logo {
-     padding-bottom: 4rem;
+    padding-bottom: 4rem;
   }
 
   #button-menu,
@@ -321,7 +337,7 @@ header {
   }
 
   li:hover {
-    transition: all 0.8s ease;
+    transition: all 1.2s ease;
     border-bottom: 2px solid var(--Orange);
   }
 
@@ -366,6 +382,9 @@ header {
     height: 50rem;
 
     border-radius: 1.5rem;
+
+    cursor: pointer;
+    pointer-events: all;
   }
 
   #navigation > #images {
@@ -444,4 +463,90 @@ header {
   #div-quantity {
     width: 22.5rem;
   }
+}
+
+/* JS */
+
+#desktop-navigation {
+  width: 50rem;
+  /* height: 50rem; */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#close-background {
+  margin-bottom: 1rem;
+  height: 2.2rem;
+
+  cursor: pointer;
+}
+
+#desktop-carousel > img {
+  width: 50rem;
+  height: 50rem;
+
+  margin: auto;
+
+  border-radius: 1rem;
+}
+
+#desktop-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 4rem;
+}
+
+#desktop-images > img {
+  height: 8.5rem;
+  width: 8.5rem;
+  border-radius: 0.8rem;
+
+  cursor: pointer;
+}
+
+#desktop-images > img:hover {
+  transition: all 0.8s ease;
+  outline: 3px solid var(--Orange);
+  /* opacity: 0.7; */
+}
+
+#desktop-buttons-navigation {
+  width: 53.5rem;
+
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#desktop-buttons-navigation > button {
+  height: 4rem;
+  width: 4rem;
+
+  border-radius: 50%;
+  border: none;
+
+  cursor: pointer;
+  z-index: 0;
+}
+
+#desktop-buttons-navigation > button > img {
+  height: 1.4rem;
+  width: 1.2rem;
+  margin: auto;
+}
+
+#desktop-buttons-navigation > button,
+#desktop-buttons-navigation > button > img {
+  display: block;
 }
