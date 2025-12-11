@@ -7,6 +7,7 @@ const desktopNavigation = document.getElementById("desktop-navigation");
 const desktopSlides = document.querySelectorAll(".desktop-slide");
 
 const slides = document.querySelectorAll(".slide");
+
 let index = 0;
 
 function checkScreenSize() {
@@ -36,19 +37,15 @@ buttonCloseMenu.addEventListener("click", () => {
 showSlide(index);
 
 function nextSlide(n) {
-  if (window.innerWidth < 900) {
-    showSlide((index += n));
-  } else {
-    showDesktopSlide((index += n));
-  }
+  window.innerWidth < 900
+    ? showSlide((index += n))
+    : showDesktopSlide((index += n));
 }
 
 function previousSlide(n) {
-  if (window.innerWidth < 900) {
-    showSlide((index += n));
-  } else {
-    showDesktopSlide((index += n));
-  }
+  window.innerWidth < 900
+    ? showSlide((index += n))
+    : showDesktopSlide((index += n));
 }
 
 function showSlide(n) {
@@ -77,7 +74,7 @@ function showDesktopSlide(n) {
       lightboxBackground.style.display = "block";
     });
   });
-  
+
   desktopSlides.forEach((deskSlide) => {
     deskSlide.style.display = "none";
   });
