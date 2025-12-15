@@ -286,6 +286,130 @@ header {
   animation-duration: 1.5s;
 }
 
+#cart {
+  width: 95%;
+  max-width: 50rem;
+  height: 25rem;
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 10px;
+  background-color: var(--White);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.322);
+  z-index: 3;
+
+  display: none;
+}
+
+#cart > h1 {
+  margin: 1.5rem 2rem;
+  padding-bottom: 2rem;
+
+  border-bottom: 1px solid var(--Grayish-blue);
+}
+
+#order {
+  width: 90%;
+  margin: 2.5rem auto 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--Dark-grayish-blue);
+
+  display: none;
+}
+
+#order > #product-image {
+  width: 6rem;
+
+  border-radius: 0.5rem;
+}
+
+#order > #trash {
+  cursor: pointer;
+}
+
+#order-details {
+  height: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#order-details > div > span {
+  margin-right: 1rem;
+}
+
+#total-price {
+  font-weight: 700;
+  color: var(--Very-dark-blue);
+}
+
+#notification {
+  position: absolute;
+  top: calc(1% + 5px);
+  right: 14%;
+  display: block;
+
+  border-radius: 0.75rem;
+  padding: 1px 8px;
+
+  text-align: center;
+  color: var(--White);
+  background-color: var(--Orange);
+}
+
+#cart > button {
+  display: none;
+
+  width: 90%;
+  margin: 3.5rem auto 0;
+  padding: 1.5rem 0px;
+
+  border: none;
+  border-radius: 1rem;
+
+  color: var(--Very-dark-blue);
+  background-color: var(--Orange);
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+#message {
+  margin-top: 6rem;
+
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--Dark-grayish-blue);
+}
+
+.falls {
+  animation-name: falls;
+  animation-duration: 1s;
+}
+
+@keyframes falls {
+  from {
+    top: -25rem;
+  }
+  to {
+    top: 30%;
+  }
+}
+
 @keyframes fade {
   from {
     opacity: 0.2;

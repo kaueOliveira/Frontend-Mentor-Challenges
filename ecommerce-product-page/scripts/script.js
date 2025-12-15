@@ -87,3 +87,82 @@ closeBackground.addEventListener("click", () => {
   lightboxBackground.style.display = "none";
   showSlide(index);
 });
+
+// Add Cart
+
+const cart = document.getElementById("cart");
+const iconCart = document.getElementById("icon-cart");
+const addCart = document.getElementById("btn-add");
+
+const message = document.getElementById("message");
+const order = document.getElementById("order");
+const trash = document.getElementById("trash");
+const checkout = document.getElementById("checkout");
+
+const minusButton = document.getElementById("minus-button");
+const plusButton = document.getElementById("plus-button");
+
+const productQuantity = document.getElementById("product-quantity");
+
+const discountedPrice = 125.0;
+quantity = 0;
+
+minusButton.addEventListener("click", () => {
+  if (quantity > 0) {
+    quantity--;
+    productQuantity.textContent = quantity;
+  }
+});
+
+plusButton.addEventListener("click", () => {
+  quantity++;
+  productQuantity.textContent = quantity;
+});
+
+iconCart.addEventListener("click", () => {
+  if (cart.style.display == "block") {
+    cart.style.display = "none";
+  } else {
+    cart.style.display = "block";
+  }
+  
+});
+
+addCart.addEventListener("click", () => {
+  if (quantity > 0) {
+    order.style.display = "flex";
+    checkout.style.display = "block";
+    message.style.display = "none";
+
+    const notification = document.createElement("span");
+    notification.id = "notification";
+    notification.textContent = "1";
+
+    document.body.appendChild(notification);
+
+    const price = document.getElementById("price");
+    const itemsQuantity = document.getElementById("items-quantity");
+    const totalPrice = document.getElementById("total-price");
+
+    price.textContent = `$${discountedPrice}`;
+    itemsQuantity.textContent = `x${quantity}`;
+    totalPrice.textContent = `$${discountedPrice * quantity}`;
+  }
+});
+
+checkout.addEventListener("click", () => {
+  order.style.display = "none";
+  checkout.style.display = "none";
+  message.style.display = "block";
+  cart.style.display = "none";
+
+  notification.remove();
+});
+
+trash.addEventListener("click", () => {
+  order.style.display = "none";
+  checkout.style.display = "none";
+  message.style.display = "block";
+
+  notification.remove();
+});
